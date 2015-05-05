@@ -32,7 +32,12 @@
 - (void)willExecute {
     [super willExecute];
 
-    self.targetURL = [[self getURL] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    self.targetURL = [self.targetURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    if([self getURL]){
+        self.targetURL = [[self getURL] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    }
+
     [self addParams];
 }
 
