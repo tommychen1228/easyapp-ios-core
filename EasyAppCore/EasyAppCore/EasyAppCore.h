@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface EasyAppCore : NSObject
-
-@end
+#import "EACLog.h"
+#import "EACService.h"
+#import "EACRemoteService.h"
+#import "EACStringRemoteService.h"
+#import "EACJSONStringRemoteService.h"
+#import "EACDBService.h"
+#import "EACBizService.h"

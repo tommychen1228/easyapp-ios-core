@@ -8,8 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		5295F8DA1AF347870074DE8D /* EasyAppCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5295F8D91AF347870074DE8D /* EasyAppCore.h */; };
-		5295F8DC1AF347870074DE8D /* EasyAppCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295F8DB1AF347870074DE8D /* EasyAppCore.m */; };
 		5295F8E21AF347870074DE8D /* libEasyAppCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5295F8D61AF347870074DE8D /* libEasyAppCore.a */; };
+		52DA95A21AF8CEDA00D34D44 /* EACBizService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA95931AF8CEDA00D34D44 /* EACBizService.m */; };
+		52DA95A31AF8CEDA00D34D44 /* EACDBService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA95961AF8CEDA00D34D44 /* EACDBService.m */; };
+		52DA95A41AF8CEDA00D34D44 /* EACJSONStringRemoteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA95981AF8CEDA00D34D44 /* EACJSONStringRemoteService.m */; };
+		52DA95A51AF8CEDA00D34D44 /* EACRemoteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA959B1AF8CEDA00D34D44 /* EACRemoteService.m */; };
+		52DA95A61AF8CEDA00D34D44 /* EACRemoteServiceException.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA959D1AF8CEDA00D34D44 /* EACRemoteServiceException.m */; };
+		52DA95A71AF8CEDA00D34D44 /* EACService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA959F1AF8CEDA00D34D44 /* EACService.m */; };
+		52DA95A81AF8CEDA00D34D44 /* EACStringRemoteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DA95A11AF8CEDA00D34D44 /* EACStringRemoteService.m */; };
+		8160D5806A473ED4F448646A /* libPods-EasyAppCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 981AC29CD9F0AB75AF2C0F6B /* libPods-EasyAppCore.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,9 +45,26 @@
 /* Begin PBXFileReference section */
 		5295F8D61AF347870074DE8D /* libEasyAppCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEasyAppCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5295F8D91AF347870074DE8D /* EasyAppCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyAppCore.h; sourceTree = "<group>"; };
-		5295F8DB1AF347870074DE8D /* EasyAppCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyAppCore.m; sourceTree = "<group>"; };
 		5295F8E11AF347870074DE8D /* EasyAppCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyAppCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5295F8E71AF347870074DE8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52DA95921AF8CEDA00D34D44 /* EACBizService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACBizService.h; sourceTree = "<group>"; };
+		52DA95931AF8CEDA00D34D44 /* EACBizService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACBizService.m; sourceTree = "<group>"; };
+		52DA95951AF8CEDA00D34D44 /* EACDBService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACDBService.h; sourceTree = "<group>"; };
+		52DA95961AF8CEDA00D34D44 /* EACDBService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACDBService.m; sourceTree = "<group>"; };
+		52DA95971AF8CEDA00D34D44 /* EACJSONStringRemoteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACJSONStringRemoteService.h; sourceTree = "<group>"; };
+		52DA95981AF8CEDA00D34D44 /* EACJSONStringRemoteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACJSONStringRemoteService.m; sourceTree = "<group>"; };
+		52DA95991AF8CEDA00D34D44 /* EACLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACLog.h; sourceTree = "<group>"; };
+		52DA959A1AF8CEDA00D34D44 /* EACRemoteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACRemoteService.h; sourceTree = "<group>"; };
+		52DA959B1AF8CEDA00D34D44 /* EACRemoteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACRemoteService.m; sourceTree = "<group>"; };
+		52DA959C1AF8CEDA00D34D44 /* EACRemoteServiceException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACRemoteServiceException.h; sourceTree = "<group>"; };
+		52DA959D1AF8CEDA00D34D44 /* EACRemoteServiceException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACRemoteServiceException.m; sourceTree = "<group>"; };
+		52DA959E1AF8CEDA00D34D44 /* EACService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACService.h; sourceTree = "<group>"; };
+		52DA959F1AF8CEDA00D34D44 /* EACService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACService.m; sourceTree = "<group>"; };
+		52DA95A01AF8CEDA00D34D44 /* EACStringRemoteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EACStringRemoteService.h; sourceTree = "<group>"; };
+		52DA95A11AF8CEDA00D34D44 /* EACStringRemoteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EACStringRemoteService.m; sourceTree = "<group>"; };
+		6DD89FDE66153901465AFAB3 /* Pods-EasyAppCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAppCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-EasyAppCore/Pods-EasyAppCore.release.xcconfig"; sourceTree = "<group>"; };
+		981AC29CD9F0AB75AF2C0F6B /* libPods-EasyAppCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EasyAppCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20D9C56E28812315E120B9C /* Pods-EasyAppCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EasyAppCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EasyAppCore/Pods-EasyAppCore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8160D5806A473ED4F448646A /* libPods-EasyAppCore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +93,8 @@
 				5295F8D81AF347870074DE8D /* EasyAppCore */,
 				5295F8E51AF347870074DE8D /* EasyAppCoreTests */,
 				5295F8D71AF347870074DE8D /* Products */,
+				8F12950E744DEB580D186208 /* Pods */,
+				BA1F1BF796D9E53755EBF89D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,8 +110,22 @@
 		5295F8D81AF347870074DE8D /* EasyAppCore */ = {
 			isa = PBXGroup;
 			children = (
+				52DA95921AF8CEDA00D34D44 /* EACBizService.h */,
+				52DA95931AF8CEDA00D34D44 /* EACBizService.m */,
+				52DA95951AF8CEDA00D34D44 /* EACDBService.h */,
+				52DA95961AF8CEDA00D34D44 /* EACDBService.m */,
+				52DA95971AF8CEDA00D34D44 /* EACJSONStringRemoteService.h */,
+				52DA95981AF8CEDA00D34D44 /* EACJSONStringRemoteService.m */,
+				52DA95991AF8CEDA00D34D44 /* EACLog.h */,
+				52DA959A1AF8CEDA00D34D44 /* EACRemoteService.h */,
+				52DA959B1AF8CEDA00D34D44 /* EACRemoteService.m */,
+				52DA959C1AF8CEDA00D34D44 /* EACRemoteServiceException.h */,
+				52DA959D1AF8CEDA00D34D44 /* EACRemoteServiceException.m */,
+				52DA959E1AF8CEDA00D34D44 /* EACService.h */,
+				52DA959F1AF8CEDA00D34D44 /* EACService.m */,
+				52DA95A01AF8CEDA00D34D44 /* EACStringRemoteService.h */,
+				52DA95A11AF8CEDA00D34D44 /* EACStringRemoteService.m */,
 				5295F8D91AF347870074DE8D /* EasyAppCore.h */,
-				5295F8DB1AF347870074DE8D /* EasyAppCore.m */,
 			);
 			path = EasyAppCore;
 			sourceTree = "<group>";
@@ -105,6 +146,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8F12950E744DEB580D186208 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C20D9C56E28812315E120B9C /* Pods-EasyAppCore.debug.xcconfig */,
+				6DD89FDE66153901465AFAB3 /* Pods-EasyAppCore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BA1F1BF796D9E53755EBF89D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				981AC29CD9F0AB75AF2C0F6B /* libPods-EasyAppCore.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5295F8EA1AF347870074DE8D /* Build configuration list for PBXNativeTarget "EasyAppCore" */;
 			buildPhases = (
+				4332B306E757C2BC58B26974 /* Check Pods Manifest.lock */,
 				5295F8D21AF347870074DE8D /* Sources */,
 				5295F8D31AF347870074DE8D /* Frameworks */,
 				5295F8D41AF347870074DE8D /* CopyFiles */,
+				44542F1424072610AC7E65C7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,12 +248,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4332B306E757C2BC58B26974 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		44542F1424072610AC7E65C7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EasyAppCore/Pods-EasyAppCore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5295F8D21AF347870074DE8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5295F8DC1AF347870074DE8D /* EasyAppCore.m in Sources */,
+				52DA95A81AF8CEDA00D34D44 /* EACStringRemoteService.m in Sources */,
+				52DA95A61AF8CEDA00D34D44 /* EACRemoteServiceException.m in Sources */,
+				52DA95A31AF8CEDA00D34D44 /* EACDBService.m in Sources */,
+				52DA95A51AF8CEDA00D34D44 /* EACRemoteService.m in Sources */,
+				52DA95A41AF8CEDA00D34D44 /* EACJSONStringRemoteService.m in Sources */,
+				52DA95A21AF8CEDA00D34D44 /* EACBizService.m in Sources */,
+				52DA95A71AF8CEDA00D34D44 /* EACService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +394,7 @@
 		};
 		5295F8EB1AF347870074DE8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C20D9C56E28812315E120B9C /* Pods-EasyAppCore.debug.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +404,7 @@
 		};
 		5295F8EC1AF347870074DE8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DD89FDE66153901465AFAB3 /* Pods-EasyAppCore.release.xcconfig */;
 			buildSettings = {
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -362,6 +463,7 @@
 				5295F8EC1AF347870074DE8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5295F8ED1AF347870074DE8D /* Build configuration list for PBXNativeTarget "EasyAppCoreTests" */ = {
 			isa = XCConfigurationList;
@@ -370,6 +472,7 @@
 				5295F8EF1AF347870074DE8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
