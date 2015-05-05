@@ -11,17 +11,6 @@
 
 @interface EACBizService ()
 
-- (NSString *)remoteString:(NSString *)method url:(NSString *)url params:(NSDictionary *)params formFiles:(NSArray *)files;
-
-- (NSString *)remoteString:(NSString *)method url:(NSString *)url params:(NSDictionary *)params;
-
-- (NSString *)remoteString:(NSString *)method url:(NSString *)url;
-
-- (id)remoteJSON:(NSString *)method url:(NSString *)url params:(NSDictionary *)params formFiles:(NSArray *)files;
-
-- (id)remoteJSON:(NSString *)method url:(NSString *)url params:(NSDictionary *)params;
-
-- (id)remoteJSON:(NSString *)method url:(NSString *)url;
 @end
 
 
