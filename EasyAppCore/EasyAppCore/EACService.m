@@ -13,10 +13,6 @@
 @property(nonatomic, strong) NSOperationQueue *queue;
 @property(nonatomic, strong) NSInvocationOperation *operation;
 
-- (void)performSuccessBlock;
-
-- (void)performFaultBlock;
-
 @end
 
 @implementation EACService
@@ -67,14 +63,14 @@
             [_delegate performSelectorOnMainThread:_onCompleteSelector withObject:nil waitUntilDone:NO];
         }
         if(_onCompleteBlock){
-            [self performSelectorOnMainThread:@selector(performCompleteBlock) withObject:nil waitUntilDone:NO];
+            _onCompleteBlock(self);
         }
 
         if([_delegate respondsToSelector:_onSuccessSelector]){
             [_delegate performSelectorOnMainThread:_onSuccessSelector withObject:_executeResult waitUntilDone:NO];
         }
         if(_onSuccessBlock){
-            [self performSelectorOnMainThread:@selector(performSuccessBlock) withObject:nil waitUntilDone:NO];
+            _onSuccessBlock(self, _executeResult);
         }
     }
     @catch (NSException *ex) {
@@ -84,14 +80,14 @@
             [_delegate performSelectorOnMainThread:_onCompleteSelector withObject:nil waitUntilDone:NO];
         }
         if (_onCompleteBlock){
-            [self performSelectorOnMainThread:@selector(performCompleteBlock) withObject:nil waitUntilDone:NO];
+            _onCompleteBlock(self);
         }
 
         if ([_delegate respondsToSelector:_onFaultSelector]) {
             [self performSelectorOnMainThread:_onFaultSelector withObject:_executeException waitUntilDone:NO];
         }
         if(_onFaultBlock){
-            [self performSelectorOnMainThread:@selector(performFaultBlock) withObject:nil waitUntilDone:NO];
+            _onFaultBlock(self, _executeException);
         }
 
 
@@ -118,18 +114,6 @@
 - (void)cancel {
     [_operation cancel];
     [_queue cancelAllOperations];
-}
-
-- (void)performCompleteBlock {
-    _onCompleteBlock(self);
-}
-
-- (void)performSuccessBlock {
-    _onSuccessBlock(self, _executeResult);
-}
-
-- (void)performFaultBlock {
-    _onFaultBlock(self, _executeException);
 }
 
 @end
