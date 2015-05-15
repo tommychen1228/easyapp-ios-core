@@ -33,6 +33,9 @@
 
     if ([self.requestMethod isEqualToString:@"POST"]) {
         ASIFormDataRequest *postRequest = [ASIFormDataRequest requestWithURL:requestUrl];
+        postRequest.timeOutSeconds = timeOutSeconds;
+        postRequest.defaultResponseEncoding = NSUTF8StringEncoding;
+
         for (NSString *key in _sendParams.allKeys) {
             id value = [_sendParams valueForKey:key];
             [postRequest setPostValue:value forKey:key];
@@ -57,14 +60,15 @@
 
         requestUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", requestUrl, paramStr]];
         ASIHTTPRequest *getRequest = [ASIHTTPRequest requestWithURL:requestUrl];
+        getRequest.timeOutSeconds = timeOutSeconds;
+        getRequest.defaultResponseEncoding = NSUTF8StringEncoding;
 
         [getRequest startSynchronous];
 
         request = getRequest;
     }
 
-    request.timeOutSeconds = timeOutSeconds;
-    request.defaultResponseEncoding = NSUTF8StringEncoding;
+
     // result
     int statusCode = request.responseStatusCode;
     NSString *resultString = request.responseString;
