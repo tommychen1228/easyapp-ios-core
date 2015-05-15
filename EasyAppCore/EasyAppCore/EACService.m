@@ -63,14 +63,19 @@
             [_delegate performSelectorOnMainThread:_onCompleteSelector withObject:nil waitUntilDone:NO];
         }
         if(_onCompleteBlock){
-            _onCompleteBlock(self);
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                _onCompleteBlock(self);
+            });
+
         }
 
         if([_delegate respondsToSelector:_onSuccessSelector]){
             [_delegate performSelectorOnMainThread:_onSuccessSelector withObject:_executeResult waitUntilDone:NO];
         }
         if(_onSuccessBlock){
-            _onSuccessBlock(self, _executeResult);
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                _onSuccessBlock(self, _executeResult);
+            });
         }
     }
     @catch (NSException *ex) {
@@ -80,16 +85,19 @@
             [_delegate performSelectorOnMainThread:_onCompleteSelector withObject:nil waitUntilDone:NO];
         }
         if (_onCompleteBlock){
-            _onCompleteBlock(self);
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                _onCompleteBlock(self);
+            });
         }
 
         if ([_delegate respondsToSelector:_onFaultSelector]) {
             [self performSelectorOnMainThread:_onFaultSelector withObject:_executeException waitUntilDone:NO];
         }
         if(_onFaultBlock){
-            _onFaultBlock(self, _executeException);
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                _onFaultBlock(self, _executeException);
+            });
         }
-
 
     }
 }
