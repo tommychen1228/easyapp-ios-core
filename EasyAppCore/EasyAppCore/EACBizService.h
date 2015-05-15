@@ -25,3 +25,9 @@
 - (id)remoteJSON:(NSString *)method url:(NSString *)url;
 
 @end
+
+@interface EACBizServiceResult : NSObject
+
+@property(nonatomic, strong) id data;
+
+@end

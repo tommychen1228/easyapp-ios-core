@@ -61,3 +61,7 @@
 
 
 @end
+
+@implementation EACBizServiceResult
+
+@end
