@@ -15,17 +15,19 @@
 @interface EACService : NSObject
 
 @property(nonatomic, strong) id delegate;
+@property(nonatomic) SEL onCompleteSelector;
 @property(nonatomic) SEL onSuccessSelector;
 @property(nonatomic) SEL onFaultSelector;
 @property(nonatomic, strong) id executeResult;
 @property(nonatomic, strong) NSException *executeException;
+@property(nonatomic, strong) void (^onCompleteBlock)(EACService *);
 @property(nonatomic, strong) void (^onSuccessBlock)(EACService *, id);
 @property(nonatomic, strong) void (^onFaultBlock)(EACService *, id);
 
 - (id)syncExecute;
 
 - (void)asyncExecute;
-- (void)asyncExecuteSuccess:(void (^)(EACService *, id))onSuccess andFault:(void (^)(EACService *, NSException *))onFault;
+- (void)asyncExecuteWithComplete:(void (^)(EACService *))onComplete andSuccess:(void (^)(EACService *, id))onSuccess andFault:(void (^)(EACService *, NSException *))onFault;
 
 - (void)willExecute;
 

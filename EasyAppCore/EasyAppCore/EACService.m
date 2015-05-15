@@ -22,7 +22,6 @@
 @implementation EACService
 
 
-
 - (id)init {
     self = [super init];
     if (self) {
@@ -48,11 +47,12 @@
     [_queue addOperation:_operation];
 }
 
-- (void)asyncExecuteSuccess:(void (^)(EACService *, id))onSuccess andFault:(void (^)(EACService *, NSException *))onFault {
-    self.onSuccessBlock = [onSuccess copy];
-    self.onFaultBlock = [onFault copy];
+- (void)asyncExecuteWithComplete:(void (^)(EACService *))onComplete andSuccess:(void (^)(EACService *, id))onSuccess andFault:(void (^)(EACService *, NSException *))onFault {
+    _onCompleteBlock = [onComplete copy];
+    _onSuccessBlock = [onSuccess copy];
+    _onFaultBlock = [onFault copy];
 
-    self.operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doAsyncExecute) object:nil];
+    _operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doAsyncExecute) object:nil];
     [_queue addOperation:_operation];
 }
 
@@ -63,15 +63,34 @@
 - (void)doAsyncExecute {
     @try {
         [self doSyncExecute];
+        if ([_delegate respondsToSelector:_onCompleteSelector]) {
+            [_delegate performSelectorOnMainThread:_onCompleteSelector withObject:nil waitUntilDone:NO];
+        }
+        if(_onCompleteBlock){
+            [self performSelectorOnMainThread:@selector(performCompleteBlock) withObject:nil waitUntilDone:NO];
+        }
+
+        if([_delegate respondsToSelector:_onSuccessSelector]){
+            [_delegate performSelectorOnMainThread:_onSuccessSelector withObject:_executeResult waitUntilDone:NO];
+        }
+        if(_onSuccessBlock){
+            [self performSelectorOnMainThread:@selector(performSuccessBlock) withObject:nil waitUntilDone:NO];
+        }
     }
     @catch (NSException *ex) {
         self.executeException = ex;
 
-        if ([self.delegate respondsToSelector:_onFaultSelector]) {
-            [self.delegate performSelectorOnMainThread:_onFaultSelector withObject:ex waitUntilDone:NO];
+        if ([_delegate respondsToSelector:_onCompleteSelector]) {
+            [_delegate performSelectorOnMainThread:_onCompleteSelector withObject:nil waitUntilDone:NO];
+        }
+        if (_onCompleteBlock){
+            [self performSelectorOnMainThread:@selector(performCompleteBlock) withObject:nil waitUntilDone:NO];
         }
 
-        if (_onFaultBlock) {
+        if ([_delegate respondsToSelector:_onFaultSelector]) {
+            [self performSelectorOnMainThread:_onFaultSelector withObject:_executeException waitUntilDone:NO];
+        }
+        if(_onFaultBlock){
             [self performSelectorOnMainThread:@selector(performFaultBlock) withObject:nil waitUntilDone:NO];
         }
 
@@ -86,14 +105,6 @@
     id newResult = [self didExecute:result];
     self.executeResult = newResult;
 
-    if ([_delegate respondsToSelector:_onSuccessSelector]) {
-        [_delegate performSelectorOnMainThread:_onSuccessSelector withObject:newResult waitUntilDone:NO];
-    }
-
-    if (_onSuccessBlock) {
-        [self performSelectorOnMainThread:@selector(performSuccessBlock) withObject:nil waitUntilDone:NO];
-    }
-
 }
 
 - (id)didExecute:(id)result {
@@ -107,6 +118,10 @@
 - (void)cancel {
     [_operation cancel];
     [_queue cancelAllOperations];
+}
+
+- (void)performCompleteBlock {
+    _onCompleteBlock(self);
 }
 
 - (void)performSuccessBlock {
