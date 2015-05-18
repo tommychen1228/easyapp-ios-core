@@ -58,7 +58,9 @@
             [paramStr appendFormat:@"%@=%@&", key, value];
         }
 
-        requestUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", requestUrl, paramStr]];
+        NSString *encodedParamStr = [paramStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+        requestUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", requestUrl, encodedParamStr]];
         ASIHTTPRequest *getRequest = [ASIHTTPRequest requestWithURL:requestUrl];
         getRequest.timeOutSeconds = timeOutSeconds;
         getRequest.defaultResponseEncoding = NSUTF8StringEncoding;
