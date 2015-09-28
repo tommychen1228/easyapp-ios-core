@@ -14,3 +14,4 @@
 #import "EACJSONStringRemoteService.h"
 #import "EACDBService.h"
 #import "EACBizService.h"
+#import "EACRemoteServiceException.h"
